@@ -1,0 +1,33 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches:
+      - main  # Ganti dengan nama branch utama Anda jika berbeda
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Penting untuk mendapatkan riwayat commit lengkap
+
+      - name: Generate Sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url: "https://ramado1244.github.io"  # Ganti dengan URL GitHub Pages Anda
+          base-url-path: "https://ramado1244.github.io/test/"
+          include-extensions: "html"
+          path-to-root: .
+
+      - name: Commit and Push Sitemap
+        run: |
+          git config --global user.name 'ramado1244'
+          git config --global user.email 'ramadhani7575@gmail.com'
+          git add sitemap.xml
+          git commit -m "Menambahkan sitemap.xml yang dihasilkan"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
