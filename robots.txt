@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /sitemap_new.xml
 Sitemap: https://ramado1244.github.io/test/sitemap_new.xml
