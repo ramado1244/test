@@ -4,4 +4,4 @@ Disallow: /nogooglebot/
 User-agent: *
 Allow: /
 
-Sitemap: https://ramado1244.github.io/test/sitemap_new.xml
+Sitemap: https://ramado1244.github.io/test/sitemap.xml
